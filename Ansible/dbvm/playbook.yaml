@@ -1,0 +1,36 @@
+# MYSQL
+---
+- name: Install MySQL on Windows
+  hosts: windows_servers  # Replace 'windows_servers' with the group or IP address of your Windows machines
+  gather_facts: false     # Disable gathering facts for Windows hosts
+
+  tasks:
+    - name: Download MySQL Installer
+      win_get_url:
+        url: "https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-8.0.27.0.msi"
+        dest: C:\Temp\mysql-installer.msi
+
+    - name: Install MySQL
+      win_package:
+        path: C:\Temp\mysql-installer.msi
+        product_id: "{8A74E887-8F0F-3EEC-A3E5-3D4A36E4E69E}"  # Product ID for MySQL Server Community Edition
+        arguments: "INSTALLDIR=C:\\MySQL /qn"
+      become: true
+
+    - name: Download Notepad++
+      win_get_url:
+        url: "https://download.tuxfamily.org/notepadplus/7.9.5/npp.7.9.5.Installer.exe"  # Update the URL if a newer version is available
+        dest: C:\Temp\npp.7.9.5.Installer.exe
+
+    - name: Install Notepad++
+      win_shell: |
+        Start-Process -FilePath "C:\Temp\npp.7.9.5.Installer.exe" -ArgumentList "/S" -Wait
+      become: true
+
+    - name: Include common tasks for Windows
+      include_role:
+        name: common
+
+    - name: Include PHP application deployment tasks for Windows
+      include_role:
+        name: php_app

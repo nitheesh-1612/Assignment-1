@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sunlit-almanac-392511",
+  "private_key_id": "e6e010459af9e7bbf167502dec47a2c2cbc6ef9b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC75jL0kmvoVwgO\niS2ehTyDmVjly5nmGp99qLymNFa7RAumUbM24gFKb9b/UG/Gf+9SnjLxCnFLiiNQ\nV/EFriUqP4s2W8X0fFC5P35akuMwY/pCapmXk05EyjHOy6R/Gs0ZZ0n9y63hdgGJ\nLyQ5u91BQHh6qTMAiPisXaS99710HzMp2g6g6/+KDqGXOo7YJW+e1dBIRBqyuLR6\nJF+5yD2dw6Efj6InRW2mgtMKd0xel2vwULkrYaSMtl24LINCz56ec37KK477bX0c\ncZc3nq6ymq6PpkSFL9jDL0G8SpCFwrRE0u/B4vJv+A5Ab70j2p420C1X76By+FQb\nTwTL/H7RAgMBAAECggEAGMrSsd0JAmbLYBmfDJHBbo7DAU0YQRmFrk+flqGEySA9\nFkSk7CqtZ2wy1sy+9tbGFeVcTNwnH0O6jZ0Q5wI3kqfAP1ukFrJ5dzvmuN41PlsO\nuAk3O137H437PPE3QvMfGUk85NElYACRSs/OzJRaaQPv8aVWHq2z/BA+Dre7xnCm\nev2GgDNcN85JRSOcZ5QMA47Viyy58mQZwkMPVybC1IziGq8oCuZS6D55ehDZeNah\niVz86pq1N9/mqzN71MSb3ka1bAcwjY7bfH37b68Y4vkJBkho0Y5VpkOBleIsQYjK\nDZe8sZBevoa879KPwqpjYf8c0xG31QBSwltCwEwQbQKBgQDnNr9gtoietfiHLC2w\nqTHLGmoD1PUhbwRBRRM88ixXL5CAzep0wekhuvscywAfyRC/2rD+WUC78r8oaYaN\nAOswshqa2kynpuxZYOrzsdx0M0N1CuEyixYZStiOrI48N9vlrYwtyf30jKOi0Hbd\nkN7TrRLK78MlFOgIcx8ivtWd3QKBgQDQCsId7Q6GouIQKY2eKjObxBVR7kV5b1dH\ngd37sBAR4Y5MCSo8mo6QVa581ewVFGi88c8PPlhdFh/mEwq8VegrnKYbzTcKxkVZ\n9UkqokJ9OXuu3NLkhRNiXC/zhZHjACpczvRUWQLYsVIF1PvWuRaCD8DeRn8+uRJS\nuin5QoM3hQKBgCknbH75Xm3pc9gTe/py0yMUi4QtFoih6v73HYp+jHfkRnM2s6Ge\nljFjx6iDVX1S24FamqBbIJOTjITT65gTbslXGjcv3e8FXhI2lvtTUCr6qOofSqAl\nc4SC9vLGMfbz9lb2QfowdtxdYA7tzgp368F/j9XBQVnLU9WVMBiOIRWdAoGAXbSq\n0K3pAA23w03kItyhWETO0ZOAKX1UE7pUETyxUEyHOopaQufe1PYy3LnCV5BUyN4l\nxJjxViRUA96J1GDhbVtmmlkptKmvrSBFb3Wceyj8I7wFJbcnDwO0+XwtRNDbQ+hX\ntvJMzOu5pTTUplfB4p1T4wpf4BGeRjLiGwqxbb0CgYEA2P0rNz5vVTCDYemOydi0\njFkWHA6pyDVHIlfU/ChqVIaYOjjro1/u1BPlrD6Vv8qftOjqE9TSrIKDctFojH8O\n5nJ32AFu3p+oXh/9kJhUthcSs8PREnAmbnf7KJO+1OMkAD+uWZnhvnny32fXJf4j\n+IjPQc/SLsbTJmYDfv/fnZA=\n-----END PRIVATE KEY-----\n",
+  "client_email": "devopsproject@sunlit-almanac-392511.iam.gserviceaccount.com",
+  "client_id": "103748295528473235539",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/devopsproject%40sunlit-almanac-392511.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

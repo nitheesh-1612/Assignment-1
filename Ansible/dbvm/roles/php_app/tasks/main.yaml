@@ -1,0 +1,9 @@
+- name: Copy the PHP application to the server
+  win_copy:
+    src: /path/to/your/php/app/files
+    dest: C:\path\to\app\on\server
+
+- name: Restart IIS to apply changes
+  win_service:
+    name: IISAdmin
+    state: restarted

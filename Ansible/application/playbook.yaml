@@ -1,0 +1,119 @@
+# Notepad ++
+---
+- name: Install Notepad++
+  hosts: windows_servers  # Replace 'windows_servers' with the group or IP address of your Windows machines
+  gather_facts: false     # Disable gathering facts for Windows hosts
+
+  tasks:
+    - name: Download Notepad++
+      win_get_url:
+        url: "https://download.tuxfamily.org/notepadplus/7.9.5/npp.7.9.5.Installer.exe"  # Update the URL if a newer version is available
+        dest: C:\Temp\npp.7.9.5.Installer.exe
+
+    - name: Install Notepad++
+      win_shell: |
+        Start-Process -FilePath "C:\Temp\npp.7.9.5.Installer.exe" -ArgumentList "/S" -Wait
+      become: true
+
+    - name: Download XAMPP
+      win_get_url:
+        url: "https://www.apachefriends.org/xampp-files/{{ xampp_version }}/xampp-windows-x64-{{ xampp_version }}-VC15-installer.exe"
+        dest: C:\Temp\xampp_installer.exe
+      vars:
+        xampp_version: "8.0.11"  # Update the XAMPP version if a newer one is available
+
+    - name: Install XAMPP
+      win_shell: |
+        Start-Process -FilePath "C:\Temp\xampp_installer.exe" -ArgumentList "/S" -Wait
+      become: true
+
+    - name: Download Chrome Installer
+      win_get_url:
+        url: "https://dl.google.com/chrome/install/CHROME_VERSION/chrome_installer.exe"
+        dest: C:\Temp\chrome_installer.exe
+      vars:
+        CHROME_VERSION: "88.0.4324.150"  # Update the Chrome version if a newer one is available
+
+    - name: Install Chrome
+      win_shell: |
+        Start-Process -FilePath "C:\Temp\chrome_installer.exe" -ArgumentList "/silent /install" -Wait
+      become: true
+
+    - name: Download Apache
+      win_get_url:
+        url: "https://downloads.apache.org//httpd/binaries/win64/httpd-2.4.48-win64-VS16.zip"
+        dest: C:\Temp\httpd.zip
+
+    - name: Unzip Apache
+      win_unzip:
+        src: C:\Temp\httpd.zip
+        dest: C:\Apache
+      args:
+        creates: C:\Apache\httpd-2.4.48\
+
+    - name: Set Apache Environment Variable
+      win_environment:
+        name: PATH
+        state: present
+        value: C:\Apache\httpd-2.4.48\bin
+        level: machine
+
+    - name: Install Apache Service
+      win_command: httpd.exe -k install
+      args:
+        chdir: C:\Apache\httpd-2.4.48\bin
+      become: true
+      become_user: System
+
+    - name: Download PHP Zip Archive
+      win_get_url:
+        url: "https://windows.php.net/downloads/releases/php-8.0.11-Win32-vs16-x64.zip"
+        dest: C:\Temp\php.zip
+
+    - name: Unzip PHP Archive
+      win_unzip:
+        src: C:\Temp\php.zip
+        dest: C:\PHP
+      args:
+        creates: C:\PHP\php-8.0.11-Win32-vs16-x64\
+
+    - name: Set PHP Environment Variable
+      win_environment:
+        name: PATH
+        state: present
+        value: C:\PHP\php-8.0.11-Win32-vs16-x64
+        level: machine
+
+    - name: Grant RDP access to users
+      win_rdp:
+        user: "{{ item }}"
+        state: present
+      with_items:
+        - user1
+        - user2
+        - user3
+      # Replace the above user names with the list of users you want to grant RDP access.
+
+    - name: Restart WinRM service
+      win_shell: Restart-Service -Name WinRM
+
+  vars:
+    admin_users:
+      - username1
+      - username2
+
+  tasks:
+    - name: Ensure admin users exist
+      user:
+        name: "{{ item }}"
+        state: present
+        groups: admin
+      loop: "{{ admin_users }}"
+
+  tasks:
+    - name: Ensure admin users are absent
+      user:
+        name: "{{ item }}"
+        state: absent
+        groups: admin
+      loop: "{{ admin_users }}"

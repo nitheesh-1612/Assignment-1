@@ -1,0 +1,19 @@
+- name: Install IIS (Web Server) Role
+  win_feature:
+    name: Web-Server
+    state: present
+
+- name: Install CGI feature for PHP
+  win_feature:
+    name: Web-CGI
+    state: present
+
+- name: Install PHP
+  win_chocolatey:
+    name: php
+    state: present
+
+- name: Add PHP to PATH
+  win_path:
+    elements: "C:\ProgramData\chocolatey\bin"
+  # You may need to adjust the path based on your PHP installation
